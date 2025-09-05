@@ -1,0 +1,32 @@
+.header {
+  position: fixed;
+  width: 100%;
+}
+
+.headerWrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  padding: 18px 0px;
+}
+
+.logo {
+  color: var(--first-color);
+  font-weight: 600;
+}
+
+.nav {
+  display: flex;
+}
+
+.navMenu {
+  display: flex;
+  gap: 50px;
+}
+
+.navLink {
+  color: var(--first-color);
+  font-size: var(--default-font-size);
+  cursor: pointer;
+}

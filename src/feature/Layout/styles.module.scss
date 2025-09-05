@@ -1,0 +1,15 @@
+.scroll-area {
+  display: flex;
+  flex-direction: column;
+}
+
+.content {
+  display: flex;
+
+  @media (max-width: 767px) {
+    width: 100%;
+    padding: 0;
+    border-top-right-radius: 24px;
+    border-top-left-radius: 24px;
+  }
+}
