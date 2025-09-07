@@ -1,24 +1,27 @@
 :root {
-  --first-color: #ffffff;
-  --second-color: #6a59d1;
-  --third-color: #777;
-
-  --hover-color: #614fd0;
+  --primary-text-color: #ffffff;
+  --secondary-text-color: #a9afc3;
 
   --body-bg-color: #1e1e1e;
-  --card-bg-color: #fff;
-  --modal-bg-color: #fff;
+
+  --cta-color: #0071e3;
+  --cta-hover-color: #0077ed;
+
   --bg-transparent-color: rgba(0, 0, 0, 0.1);
   --bg-transparent-color-01: rgba(0, 0, 0, 0.1);
   --bg-transparent-color-02: rgba(106, 89, 209, 0.1);
+
   --liner-color: #d7d7d7;
 
   --color-filter: invert(1);
 
   --box-shadow: 0px 0px 20px rgb(0 0 0 / 10%);
 
+  --extra-small-font-size: 12px;
   --small-font-size: 14px;
   --default-font-size: 16px;
+  --extra-large-font-size: 60px;
+  --cta-font-size: 18px;
 
   --bold-font-weight: 700;
 
@@ -28,7 +31,7 @@
 }
 
 .dark-theme {
-  --first-color: #fff;
+  --primary-text-color: #fff;
   --second-color: #6a59d1;
   --third-color: #a9afc3;
 
@@ -71,20 +74,14 @@ a {
   color: inherit;
 }
 
-button {
-  background: transparent;
-  border: none;
-  outline: none;
-  cursor: pointer;
-}
-
 img {
   display: block;
   max-width: 100%;
 }
 
 html {
-  font-family: 'Poppins', sans-serif;
+  font-family: 'Factor A', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
   min-height: 100vh;
   scroll-behavior: smooth;
   font-size: 16px;
@@ -95,7 +92,7 @@ html {
 
 body {
   min-height: 100vh;
-  color: var(--first-color);
+  color: var(--primary-text-color);
   background: var(--body-bg-color);
   overflow-x: hidden;
 }
@@ -107,20 +104,12 @@ body {
   max-width: 100%;
 }
 
-.container {
-  max-width: 1250px;
-  width: 100%;
-  margin: 0 auto;
-  padding: 0 15px;
-}
-
 .scrollToTop {
   position: fixed;
   right: 0px;
   bottom: 20px;
   width: 45px;
   height: 45px;
-  background: var(--second-color);
   color: #fff;
   font-size: var(--small-font-size);
   border-radius: 3px;
@@ -141,24 +130,6 @@ body {
   opacity: 1;
   visibility: visible;
   right: 20px;
-}
-
-.them-btn {
-  position: fixed;
-  z-index: 11;
-  right: 0;
-  top: 150px;
-  background: var(--bg-transparent-color-01);
-  backdrop-filter: blur(20px);
-  width: 50px;
-  height: 50px;
-  font-size: 20px;
-  border-radius: 5px 0 0 5px;
-  box-shadow: var(--box-shadow);
-  cursor: pointer;
-  display: flex;
-  justify-content: center;
-  align-items: center;
 }
 
 .them-btn .fa-sun,
@@ -193,23 +164,4 @@ main {
   width: 100%;
   margin: 0 auto;
   padding: 60px 0 20px;
-}
-
-.flex-center {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.inner-info-link {
-  background: var(--second-color);
-  color: #fff;
-  font-size: var(--default-font-size);
-  font-weight: 500;
-  display: flex;
-  align-items: center;
-  margin-top: 25px;
-  padding: 20px 30px;
-  letter-spacing: 1px;
-  border-radius: 10px;
 }

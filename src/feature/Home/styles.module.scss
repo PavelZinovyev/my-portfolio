@@ -6,4 +6,37 @@
 .content {
   display: flex;
   justify-content: space-between;
+  align-items: center;
+  gap: 60px;
+}
+
+.imageContainer {
+  width: 470px;
+}
+
+.headerInfo {
+  font-size: var(--extra-large-font-size);
+  font-weight: var(--bold-font-weight);
+}
+
+.postTitle {
+  color: var(--secondary-text-color);
+  font-size: 20px;
+}
+
+.about {
+  color: var(--primary-text-color);
+  max-width: 350px;
+  width: 100%;
+  font-weight: 300;
+}
+
+.homeWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+
+  & > :last-child {
+    margin-top: 20px;
+  }
 }
