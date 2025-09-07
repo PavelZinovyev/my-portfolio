@@ -28,7 +28,7 @@ export const Home = () => {
           />
         </div>
         <div className={styles.imageContainer}>
-          <img src={photo}></img>
+          <img src={photo} alt="Portrait of Pavel Zinovyev"></img>
         </div>
       </div>
     </section>
