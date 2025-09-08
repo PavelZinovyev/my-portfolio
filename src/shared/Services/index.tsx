@@ -9,6 +9,7 @@ export const Services = () => {
 
         return (
           <a
+            key={service.name}
             className={styles.service}
             target="_blank"
             rel="noopener noreferrer"
