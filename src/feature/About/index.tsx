@@ -7,7 +7,7 @@ export const About = () => {
       <div className={styles.aboutWrapper}>
         <div className={styles.widgetWrapper}>бублик</div>
         <div className={styles.widgetWrapper}></div>
-        <div className={styles.widgetWrapper}>
+        <div className={`${styles.widgetWrapper} ${styles.globeWidget}`}>
           <h3>Time Zone</h3>
           <p className={styles.locationText}>
             Located in Moscow. Open to remote

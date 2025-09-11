@@ -62,6 +62,15 @@
   color: var(--secondary-text-color);
 }
 
+.globeWidget {
+  background: linear-gradient(
+    to top left,
+    #3a3a3a 0%,
+    /* rgb(58, 58, 58) */ #242424 50%,
+    /* rgb(36, 36, 36) */ #3a3a3a 100% /* rgb(58, 58, 58) */
+  );
+}
+
 .globWrapper {
   position: absolute;
   width: 100%;
