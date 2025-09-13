@@ -5,9 +5,13 @@ import { Home } from './feature/Home';
 import { About } from './feature/About';
 import { SectionHeader } from './shared/SectionHeader';
 
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
+
 export const App = () => {
+  const queryClient = new QueryClient();
+
   return (
-    <>
+    <QueryClientProvider client={queryClient}>
       <Header />
       <Layout>
         {
@@ -18,6 +22,6 @@ export const App = () => {
           </>
         }
       </Layout>
-    </>
+    </QueryClientProvider>
   );
 };

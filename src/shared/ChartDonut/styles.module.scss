@@ -1,0 +1,21 @@
+.root {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  align-items: start;
+}
+
+.donutContainer {
+  transform: rotate(-90deg);
+  width: 360px;
+  height: 360px;
+
+  svg {
+    overflow: visible;
+  }
+
+  @media (max-width: 479px) {
+    width: 280px;
+    height: 280px;
+  }
+}
