@@ -1,7 +1,7 @@
 .root {
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: 40px;
   align-items: start;
 }
 
@@ -17,5 +17,43 @@
   @media (max-width: 479px) {
     width: 280px;
     height: 280px;
+  }
+}
+
+.legenda {
+  display: flex;
+  flex-direction: column;
+  align-self: start;
+  gap: 16px;
+}
+
+.row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.circle {
+  width: 16px;
+  height: 16px;
+  flex-shrink: 0;
+  border-radius: 50%;
+}
+
+.text {
+  font-size: 20px;
+  line-height: 24px;
+  font-weight: 700;
+}
+
+.segment {
+  cursor: pointer;
+
+  .path {
+    transition: stroke-width 0.2s ease-in-out;
+  }
+
+  .cap {
+    transition: height 0.2s ease-in-out, y 0.2s ease-in-out;
   }
 }
