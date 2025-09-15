@@ -1,8 +1,10 @@
 .root {
   display: flex;
-  flex-direction: column;
+  // flex-direction: column;
+  flex-wrap: wrap;
   gap: 40px;
   align-items: start;
+  justify-content: space-between;
 }
 
 .donutContainer {
@@ -23,14 +25,22 @@
 .legenda {
   display: flex;
   flex-direction: column;
-  align-self: start;
+  justify-content: center;
   gap: 16px;
+  margin-top: auto;
+  margin-bottom: auto;
+  margin-right: auto;
 }
 
 .row {
   display: flex;
   align-items: center;
   gap: 8px;
+  transition: filter 200ms ease;
+}
+
+.blur {
+  filter: blur(5px);
 }
 
 .circle {

@@ -21,8 +21,9 @@ export const mixFrameworks = (langs: LangsProps) => {
   const combined = [...langsPercent, ...DEFAULT_FRAMEWORKS];
 
   const combinedSum = combined.reduce((acc, item) => acc + item.value, 0);
+  const combinedSorted = [...combined].sort((a, b) => b.value - a.value);
 
-  return combined.map((item) => ({
+  return combinedSorted.map((item) => ({
     ...item,
     color: LANGS_COLORS[item.name as LangsNamesProps],
     value: Number(((item.value / combinedSum) * 100).toFixed(1)),

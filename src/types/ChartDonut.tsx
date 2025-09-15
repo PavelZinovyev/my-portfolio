@@ -6,6 +6,7 @@ export interface LegendaItemProps {
 
 export interface ChartDonutProps {
   data: LegendaItemProps[] | null;
+  isLoading: boolean;
   segmentSize?: number;
   segmentGap?: number;
   innerPadding?: number;
