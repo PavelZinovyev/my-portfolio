@@ -1,6 +1,5 @@
 .root {
   display: flex;
-  // flex-direction: column;
   flex-wrap: wrap;
   gap: 40px;
   align-items: start;
@@ -11,6 +10,7 @@
   transform: rotate(-90deg);
   width: 360px;
   height: 360px;
+  margin: auto;
 
   svg {
     overflow: visible;
@@ -54,6 +54,10 @@
   font-size: 20px;
   line-height: 24px;
   font-weight: 700;
+
+  @media (max-width: 479px) {
+    font-size: 16px;
+  }
 }
 
 .segment {

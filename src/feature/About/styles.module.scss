@@ -40,7 +40,6 @@
   flex-direction: column;
   overflow: hidden;
   justify-content: space-between;
-
   gap: 20px;
   padding: 24px;
   border-radius: var(--default-border-radius);
@@ -69,9 +68,14 @@
   gap: 20px;
 }
 
-.locationText {
+.descriptionText {
   text-wrap: balance;
+  line-height: var(--default-line-height);
   color: var(--secondary-text-color);
+}
+
+.radarWrapper {
+  margin: auto;
 }
 
 .globWrapper {
@@ -82,4 +86,8 @@
   margin: 0 auto;
   left: 25%;
   top: 15%;
+}
+
+.donutWidgetGap {
+  gap: 40px;
 }
