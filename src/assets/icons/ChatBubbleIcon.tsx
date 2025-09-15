@@ -25,5 +25,3 @@ export const ChatBubbleIcon: FC = () => {
     </svg>
   );
 };
-
-export default ChatBubbleIcon;

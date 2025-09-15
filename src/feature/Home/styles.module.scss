@@ -8,6 +8,10 @@
   justify-content: space-between;
   align-items: center;
   gap: 60px;
+
+  @media (max-width: 1023px) {
+    flex-direction: column-reverse;
+  }
 }
 
 .imageContainer {

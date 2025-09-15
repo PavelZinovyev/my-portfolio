@@ -1,0 +1,50 @@
+@keyframes shine {
+  0% {
+    transform: translateX(-100%);
+  }
+  50%,
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+.root {
+  flex-shrink: 0;
+  max-width: 100%;
+  overflow: hidden;
+  background: #2f2f451a;
+  position: relative;
+
+  &.rectangle {
+    border-radius: 16px;
+  }
+
+  &.round {
+    border-radius: 50%;
+  }
+
+  &.animate::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: linear-gradient(
+      90deg,
+      transparent 0,
+      rgba(255, 255, 255, 0.2) 100px,
+      transparent 200px
+    );
+    animation: shine 1.5s infinite linear;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .animate::before {
+    animation-duration: 1.2s;
+  }
+}
+
+@media screen and (max-width: 459px) {
+  .animate::before {
+    animation-duration: 1s;
+  }
+}

@@ -1,0 +1,73 @@
+.root {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 40px;
+  align-items: start;
+  justify-content: space-between;
+}
+
+.donutContainer {
+  transform: rotate(-90deg);
+  width: 360px;
+  height: 360px;
+  margin: auto;
+
+  svg {
+    overflow: visible;
+  }
+
+  @media (max-width: 479px) {
+    width: 280px;
+    height: 280px;
+  }
+}
+
+.legenda {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 16px;
+  margin-top: auto;
+  margin-bottom: auto;
+  margin-right: auto;
+}
+
+.row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: filter 200ms ease;
+}
+
+.blur {
+  filter: blur(5px);
+}
+
+.circle {
+  width: 16px;
+  height: 16px;
+  flex-shrink: 0;
+  border-radius: 50%;
+}
+
+.text {
+  font-size: 20px;
+  line-height: 24px;
+  font-weight: 700;
+
+  @media (max-width: 479px) {
+    font-size: 16px;
+  }
+}
+
+.segment {
+  cursor: pointer;
+
+  .path {
+    transition: stroke-width 0.2s ease-in-out;
+  }
+
+  .cap {
+    transition: height 0.2s ease-in-out, y 0.2s ease-in-out;
+  }
+}
