@@ -6,8 +6,6 @@ export const useActivityChartData = () => {
 
   const combinedData = mixFrameworks(data);
 
-  console.log('rest->', rest);
-
   return {
     data: combinedData,
     ...rest,

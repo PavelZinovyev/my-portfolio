@@ -92,7 +92,6 @@ html {
   scroll-behavior: smooth;
   font-size: var(--default-font-size);
   max-width: 100%;
-  overflow-x: hidden;
   min-height: 100vh;
 }
 
@@ -100,7 +99,6 @@ body {
   min-height: 100vh;
   color: var(--primary-text-color);
   background: var(--body-bg-color);
-  overflow-x: hidden;
 }
 
 #root {

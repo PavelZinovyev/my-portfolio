@@ -6,6 +6,7 @@ import { About } from './feature/About';
 import { SectionHeader } from './shared/SectionHeader';
 
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
+import { Experience } from './feature/Experience';
 
 export const App = () => {
   const queryClient = new QueryClient();
@@ -19,6 +20,8 @@ export const App = () => {
             <Home />
             <SectionHeader title={'About'} />
             <About />
+            <SectionHeader title={'My work experience'} />
+            <Experience />
           </>
         }
       </Layout>
