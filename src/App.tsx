@@ -2,10 +2,11 @@ import { Header } from './feature/Header';
 import { Layout } from './feature/Layout';
 import { Home } from './feature/Home';
 import { About } from './feature/About';
+import { Experience } from './feature/Experience';
 import { SectionHeader } from './shared/SectionHeader';
+import { Footer } from './feature/Footer';
 
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
-import { Experience } from './feature/Experience';
 
 export const App = () => {
   const queryClient = new QueryClient();
@@ -24,6 +25,7 @@ export const App = () => {
           </>
         }
       </Layout>
+      <Footer />
     </QueryClientProvider>
   );
 };

@@ -1,6 +1,4 @@
-import type { FC } from 'react';
-
-export const InfoIcon: FC = () => {
+export const InfoIcon = () => {
   return (
     <svg
       width="24px"
