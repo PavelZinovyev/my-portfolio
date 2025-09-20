@@ -22,7 +22,7 @@ export const Footer: FC = () => {
       <div className={styles.wrapper}>
         <div className={styles.content}>
           <div className={styles.contacts}>
-            <h4 className={styles.contactsTitle}>Contacts</h4>
+            <h3 className={styles.contactsTitle}>Contacts</h3>
             <ul className={styles.contactsList}>
               {CONTACTS_LIST.map((contact, i) => {
                 const isPhone = contact.type === 'tel';
