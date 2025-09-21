@@ -1,6 +1,14 @@
 .header {
   position: fixed;
   width: 100%;
+  backdrop-filter: blur(20px);
+  transition: all 200ms ease;
+  z-index: var(--z-index-main-layer);
+
+  &.blur {
+    background: #ffffff1a;
+    box-shadow: var(--box-shadow);
+  }
 }
 
 .headerWrapper {

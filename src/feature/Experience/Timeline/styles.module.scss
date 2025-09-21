@@ -60,7 +60,7 @@
   border-radius: 50%;
   background: #0f1724;
   border: 2px solid #5b5b5b;
-  z-index: 2;
+  z-index: var(--z-index-default-layer);
   transition: background-color 200ms ease, box-shadow 200ms ease;
 }
 

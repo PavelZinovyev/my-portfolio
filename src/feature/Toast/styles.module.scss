@@ -5,7 +5,7 @@
   gap: 10px;
   left: 50%;
   transform: translate(-50%, 20px);
-  z-index: 9;
+  z-index: var(--z-index-secondary-layer);
   bottom: 260px;
   opacity: 0;
   transition: transform 300ms ease, opacity 300ms ease;
