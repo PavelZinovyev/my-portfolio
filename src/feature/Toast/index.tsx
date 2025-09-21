@@ -31,7 +31,7 @@ export const Toast: FC<ToastViewProps> = ({ message, type, onDone, closing }) =>
   return (
     <div className={`${styles.root} ${isVisible ? styles.visible : ''}`}>
       <ToastIcon />
-      <span>{message}</span>
+      <span className={styles.text}>{message}</span>
     </div>
   );
 };

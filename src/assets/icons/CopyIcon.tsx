@@ -1,8 +1,7 @@
 export const CopyIcon = () => {
   return (
     <svg
-      width="24px"
-      height="24px"
+      style={{ width: 'var(--default-icon-size)', height: 'var(--default-icon-size)' }}
       viewBox="0 0 1024 1024"
       xmlns="http://www.w3.org/2000/svg"
       data-iconid="copy-document"

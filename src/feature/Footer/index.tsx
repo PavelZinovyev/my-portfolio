@@ -1,33 +1,27 @@
 import type { FC } from 'react';
 import styles from './styles.module.scss';
-import { getCopyrightsText } from './utils';
+import { useToast } from '@/hooks/useToast';
+
+import type { ContactProps } from '@/types/Contacts';
+
+import { getCopyrightsText, getToastText } from './utils';
 import { CONTACTS_LIST } from '@/constants/contactsList';
+
 import { CopyIcon } from '@/assets/icons/CopyIcon';
 import { TelegramGoIcon } from '@/assets/icons/TelegramGoIcon';
-import { useToast } from '@/hooks/useToast';
 
 export const Footer: FC = () => {
   const { showToast } = useToast();
 
   const isMobile = /Mobi|Android/i.test(navigator.userAgent);
 
-  const handleCopyToClipboard = async (text: string) => {
+  const handleCopyToClipboard = async (text: string, fieldType: ContactProps['type']) => {
     try {
       await navigator.clipboard.writeText(text);
-      showToast({ message: 'данные скопированы', type: 'success' });
-      console.log(`ты скопировал - ${text}`); // todo
+      showToast({ message: getToastText(fieldType, 'success'), type: 'success' });
     } catch (e) {
-      console.error('ошибка при копировании', e);
-    }
-  };
-
-  const handleCopyToClipboardError = async (text: string) => {
-    try {
-      await navigator.clipboard.writeText(text);
-      showToast({ message: 'данные скопированы', type: 'error' });
-      console.log(`ты скопировал - ${text}`); // todo
-    } catch (e) {
-      console.error('ошибка при копировании', e);
+      showToast({ message: getToastText(fieldType, 'error'), type: 'error' });
+      console.error(`failed to copy ${fieldType}`, e);
     }
   };
 
@@ -55,7 +49,7 @@ export const Footer: FC = () => {
                           onClick={(e) => {
                             if (!isMobile) {
                               e.preventDefault();
-                              handleCopyToClipboard(contact.value);
+                              handleCopyToClipboard(contact.value, contact.type);
                             }
                           }}
                           className={styles.contactsText}
@@ -68,7 +62,7 @@ export const Footer: FC = () => {
                       <div className={styles.contactWrapper}>
                         <span
                           className={styles.contactsText}
-                          onClick={() => handleCopyToClipboardError(contact.value)} //todo
+                          onClick={() => handleCopyToClipboard(contact.value, contact.type)}
                         >
                           {contact.value}
                         </span>

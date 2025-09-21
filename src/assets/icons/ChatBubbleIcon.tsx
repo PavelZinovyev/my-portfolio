@@ -3,8 +3,7 @@ import type { FC } from 'react';
 export const ChatBubbleIcon: FC = () => {
   return (
     <svg
-      width="24px"
-      height="24px"
+      style={{ width: 'var(--default-icon-size)', height: 'var(--default-icon-size)' }}
       viewBox="0 0 24 24"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"

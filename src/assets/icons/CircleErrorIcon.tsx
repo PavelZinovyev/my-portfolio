@@ -1,6 +1,10 @@
 export const CircleErrorIcon = () => {
   return (
-    <svg width="24px" height="24px" viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg">
+    <svg
+      style={{ width: 'var(--default-icon-size)', height: 'var(--default-icon-size)' }}
+      viewBox="0 0 1024 1024"
+      xmlns="http://www.w3.org/2000/svg"
+    >
       <path fill="var(--error-color)" d="M512 64a448 448 0 1 1 0 896 448 448 0 0 1 0-896z" />
       <path
         fill="#fff"
