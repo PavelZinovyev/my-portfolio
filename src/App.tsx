@@ -5,6 +5,7 @@ import { About } from './feature/About';
 import { Experience } from './feature/Experience';
 import { SectionHeader } from './shared/SectionHeader';
 import { Footer } from './feature/Footer';
+import { ToastProvider } from './feature/Toast/Provider';
 
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 
@@ -13,19 +14,21 @@ export const App = () => {
 
   return (
     <QueryClientProvider client={queryClient}>
-      <Header />
-      <Layout>
-        {
-          <>
-            <Home />
-            <SectionHeader title={'About'} />
-            <About />
-            <SectionHeader title={'My work experience'} />
-            <Experience />
-          </>
-        }
-      </Layout>
-      <Footer />
+      <ToastProvider>
+        <Header />
+        <Layout>
+          {
+            <>
+              <Home />
+              <SectionHeader title={'About'} />
+              <About />
+              <SectionHeader title={'My work experience'} />
+              <Experience />
+            </>
+          }
+        </Layout>
+        <Footer />
+      </ToastProvider>
     </QueryClientProvider>
   );
 };

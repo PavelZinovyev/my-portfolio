@@ -1,0 +1,23 @@
+.root {
+  position: fixed;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  left: 50%;
+  transform: translate(-50%, 20px);
+  z-index: 9;
+  bottom: 300px;
+  opacity: 0;
+  transition: transform 300ms ease, opacity 300ms ease;
+
+  background: #2f2f45;
+  color: #fff;
+  border-radius: 24px;
+  padding: 24px;
+  font-weight: 700;
+
+  &.visible {
+    opacity: 1;
+    transform: translate(-50%, 0px);
+  }
+}

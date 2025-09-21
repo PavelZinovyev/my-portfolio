@@ -4,13 +4,27 @@ import { getCopyrightsText } from './utils';
 import { CONTACTS_LIST } from '@/constants/contactsList';
 import { CopyIcon } from '@/assets/icons/CopyIcon';
 import { TelegramGoIcon } from '@/assets/icons/TelegramGoIcon';
+import { useToast } from '@/hooks/useToast';
 
 export const Footer: FC = () => {
+  const { showToast } = useToast();
+
   const isMobile = /Mobi|Android/i.test(navigator.userAgent);
 
   const handleCopyToClipboard = async (text: string) => {
     try {
       await navigator.clipboard.writeText(text);
+      showToast({ message: 'данные скопированы', type: 'success' });
+      console.log(`ты скопировал - ${text}`); // todo
+    } catch (e) {
+      console.error('ошибка при копировании', e);
+    }
+  };
+
+  const handleCopyToClipboardError = async (text: string) => {
+    try {
+      await navigator.clipboard.writeText(text);
+      showToast({ message: 'данные скопированы', type: 'error' });
       console.log(`ты скопировал - ${text}`); // todo
     } catch (e) {
       console.error('ошибка при копировании', e);
@@ -54,7 +68,7 @@ export const Footer: FC = () => {
                       <div className={styles.contactWrapper}>
                         <span
                           className={styles.contactsText}
-                          onClick={() => handleCopyToClipboard(contact.value)}
+                          onClick={() => handleCopyToClipboardError(contact.value)} //todo
                         >
                           {contact.value}
                         </span>
