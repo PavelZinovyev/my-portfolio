@@ -8,6 +8,10 @@
   &.blur {
     background: #ffffff1a;
     box-shadow: var(--box-shadow);
+
+    .headerWrapper {
+      padding: 14px 0;
+    }
   }
 }
 
@@ -15,8 +19,8 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-
-  padding: 18px 0px;
+  transition: padding 200ms ease;
+  padding: 18px 0;
 }
 
 .logo {
@@ -29,8 +33,24 @@
 }
 
 .navMenu {
+  position: relative;
   display: flex;
   gap: 50px;
+
+  .highlight {
+    position: absolute;
+    bottom: 0;
+    opacity: 0;
+    height: 100%;
+    background: linear-gradient(135deg, #0071e3, #0077ed);
+    border-radius: 26px;
+    z-index: -1;
+    transition: left 300ms ease, width 300ms ease, opacity 300ms ease 300ms;
+
+    &.visible {
+      opacity: 1;
+    }
+  }
 }
 
 .navLink {
@@ -38,4 +58,6 @@
   font-size: var(--default-font-size);
   font-weight: var(--bold-font-weight);
   cursor: pointer;
+  position: relative;
+  padding: 8px 16px;
 }

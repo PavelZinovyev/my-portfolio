@@ -4,7 +4,7 @@
   max-width: 100%;
   align-items: center;
   gap: 8px;
-  border-radius: 16px;
+  border-radius: var(--default-border-radius);
   background: rgb(245, 245, 246);
   color: var(--components-bg-color);
   font-size: 18px;

@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { Header } from './feature/Header';
 import { Layout } from './feature/Layout';
 import { Home } from './feature/Home';
@@ -6,24 +7,44 @@ import { Experience } from './feature/Experience';
 import { SectionHeader } from './shared/SectionHeader';
 import { Footer } from './feature/Footer';
 import { ToastProvider } from './feature/Toast/Provider';
+import { useIntersectionObserver } from './hooks/useSectionObserver';
+import { DEFAULT_SECTION, SECTIONS } from './constants/sections';
 
+import type { SectionIdProps } from './types/Section';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 
 export const App = () => {
+  const [currentSection, setCurrentSection] = useState<SectionIdProps>(DEFAULT_SECTION);
+
+  useIntersectionObserver(SECTIONS, setCurrentSection);
+
   const queryClient = new QueryClient();
+
+  const handleSectionClick = (section: SectionIdProps) => {
+    setCurrentSection(section);
+    const clickedSection = document.getElementById(section);
+
+    if (clickedSection) clickedSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  };
 
   return (
     <QueryClientProvider client={queryClient}>
       <ToastProvider>
-        <Header />
+        <Header currentSection={currentSection} onSectionClick={handleSectionClick} />
         <Layout>
           {
             <>
-              <Home />
+              <section id={'home'}>
+                <Home />
+              </section>
               <SectionHeader title={'About'} />
-              <About />
+              <section id={'about'}>
+                <About />
+              </section>
               <SectionHeader title={'My work experience'} />
-              <Experience />
+              <section id={'experience'}>
+                <Experience />
+              </section>
             </>
           }
         </Layout>
