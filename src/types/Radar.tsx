@@ -1,0 +1,16 @@
+import { SKILLS_EN } from '@/feature/RadarChart/constants';
+
+export type SkillType = {
+  name: string;
+  current: number;
+  future: number;
+  tooltip: string;
+};
+
+export type RadarSectionProps = {
+  name: string;
+  color: string;
+  fill: string;
+  stroke: string;
+  key: keyof (typeof SKILLS_EN)[number];
+};

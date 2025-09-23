@@ -14,10 +14,10 @@ export const getTextAnchor = (angle: number) => {
   return 'middle';
 };
 
-export const getDominantBaseline = (angle: number) => {
-  if (Math.sin(angle) > 0.1) return 'hanging';
-  if (Math.sin(angle) < -0.1) return 'baseline';
-  return 'middle';
+export const getDominantBaseline = (angle: number): 'middle' | 'hanging' | 'alphabetic' => {
+  if (angle === 0) return 'middle';
+  if (angle < 0) return 'hanging';
+  return 'alphabetic';
 };
 
 export const getPoint = (

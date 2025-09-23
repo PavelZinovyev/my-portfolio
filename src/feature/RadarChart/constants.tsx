@@ -1,4 +1,4 @@
-import type { SkillType } from './types';
+import type { RadarSectionProps, SkillType } from '@/types/Radar';
 
 export const SKILLS_EN: SkillType[] = [
   {
@@ -83,10 +83,20 @@ export const CENTER = SIZE / 2;
 export const MARGIN = 40;
 export const RADIUS = CENTER - MARGIN;
 export const TOOLTIP_MOBILE_OFFSET = 146;
-export const RADAR_SECTIONS = [
-  { name: 'Current', color: 'rgba(59, 130, 246, 0.9)' },
+
+export const RADAR_SECTIONS: RadarSectionProps[] = [
   {
     name: 'Future',
+    fill: 'rgba(34, 197, 94, 0.15)',
+    stroke: 'rgba(34, 197, 94, 0.7)',
     color: 'rgba(34, 197, 94, 0.7)',
+    key: 'future',
+  },
+  {
+    name: 'Current',
+    fill: 'rgba(59, 130, 246, 0.18)',
+    stroke: 'rgba(59, 130, 246, 0.9)',
+    color: 'rgba(59, 130, 246, 0.9)',
+    key: 'current',
   },
 ];

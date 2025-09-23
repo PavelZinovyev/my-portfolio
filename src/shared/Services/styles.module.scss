@@ -33,7 +33,7 @@
     text-decoration: none;
     color: #ffffff;
     padding: 0.5em 1em;
-    border-radius: 26px;
+    border-radius: var(--default-border-radius);
     box-shadow: 0 5px 10px rgba(0, 0, 0, 0.05);
     font-size: var(--extra-small-font-size);
     font-weight: var(--bold-font-weight);

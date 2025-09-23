@@ -2,8 +2,9 @@ import { useState, useEffect } from 'react';
 import styles from './styles.module.scss';
 import { getTextAnchor, getLabelPosition, getDominantBaseline, getPoint } from './utils';
 import { LEVELS, SKILLS_EN, SIZE, TOOLTIP_MOBILE_OFFSET } from './constants';
+import type { RadarSectionProps } from '@/types/Radar';
 
-export const RadarChart = () => {
+export const RadarChart = ({ data }: { data: RadarSectionProps[] }) => {
   const [tooltip, setTooltip] = useState<{ text: string; x: number; y: number } | null>(null);
   const [lastTooltip, setLastTooltip] = useState<{ text: string; x: number; y: number } | null>(
     null
@@ -86,18 +87,6 @@ export const RadarChart = () => {
     );
   });
 
-  const currentPtsStr = SKILLS_EN.map((s, i) =>
-    getPoint(i, s.current, LEVELS, currentCenter, currentRadius)
-  )
-    .map((p) => `${p[0]},${p[1]}`)
-    .join(' ');
-
-  const futurePtsStr = SKILLS_EN.map((s, i) =>
-    getPoint(i, s.future, LEVELS, currentCenter, currentRadius)
-  )
-    .map((p) => `${p[0]},${p[1]}`)
-    .join(' ');
-
   return (
     <div className={styles.root}>
       <svg width={size} height={size} viewBox={`0 0 ${size} ${size}`}>
@@ -121,8 +110,21 @@ export const RadarChart = () => {
             );
           })}
 
-          <polygon points={futurePtsStr} className={styles.futurePolygon} />
-          <polygon points={currentPtsStr} className={styles.currentPolygon} />
+          {data.map((section) => {
+            const ptsStr = SKILLS_EN.map((s, i) =>
+              getPoint(i, Number(s[section.key]), LEVELS, currentCenter, currentRadius)
+            )
+              .map((p) => `${p[0]},${p[1]}`)
+              .join(' ');
+            return (
+              <polygon
+                key={section.name}
+                points={ptsStr}
+                fill={section.fill}
+                stroke={section.stroke}
+              />
+            );
+          })}
 
           {dots}
         </g>

@@ -101,4 +101,8 @@
   line-height: 20px;
   gap: 16px;
   max-width: 760px;
+
+  p {
+    line-height: var(--default-line-height);
+  }
 }

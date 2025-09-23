@@ -15,6 +15,7 @@ export const Radar = () => {
           planned for 2026
         </p>
       </header>
+
       <div className={localStyles.legendaWrapper}>
         {RADAR_SECTIONS.map((section) => (
           <div className={localStyles.legendaItem} key={section.name}>
@@ -23,8 +24,9 @@ export const Radar = () => {
           </div>
         ))}
       </div>
+
       <div className={localStyles.radarWrapper}>
-        <RadarChart />
+        <RadarChart data={RADAR_SECTIONS} />
       </div>
     </div>
   );
