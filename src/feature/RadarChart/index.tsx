@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import styles from './styles.module.scss';
 import { getTextAnchor, getLabelPosition, getDominantBaseline, getPoint } from './utils';
-import { LEVELS, SKILLS_EN, SIZE, TOOLTIP_MOBILE_OFFSET } from './constants';
+import { LEVELS, SKILLS_EN, SIZE, TOOLTIP_MOBILE_OFFSET } from '../../constants/radar';
 import type { RadarSectionProps } from '@/types/Radar';
 
 export const RadarChart = ({ data }: { data: RadarSectionProps[] }) => {

@@ -1,4 +1,4 @@
-import { SKILLS_EN } from '@/feature/RadarChart/constants';
+import { SKILLS_EN } from '@/constants/radar';
 
 export type SkillType = {
   name: string;

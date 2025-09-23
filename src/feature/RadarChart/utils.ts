@@ -1,4 +1,4 @@
-import { SKILLS_EN } from './constants';
+import { SKILLS_EN } from '../../constants/radar';
 
 export const getLabelPosition = (index: number, offset: number, center: number, radius: number) => {
   const angle = (Math.PI * 2 * index) / SKILLS_EN.length - Math.PI / 2;
@@ -28,7 +28,7 @@ export const getPoint = (
   radius: number
 ) => {
   const angle = (Math.PI * 2 * index) / SKILLS_EN.length - Math.PI / 2;
-  const r = (value / maxValue) * radius;
+  const r = (Number(value) / maxValue) * radius;
   const x = center + r * Math.cos(angle);
   const y = center + r * Math.sin(angle);
   return [x, y] as const;
