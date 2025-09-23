@@ -126,7 +126,7 @@ export const RadarChart = ({
               <polygon
                 key={section.name}
                 points={ptsStr}
-                fill={hoveredSection === section.key ? section.color : section.fill}
+                fill={hoveredSection === section.key ? section.hoverColor : section.fill}
                 stroke={section.stroke}
                 className={styles.polygon}
               />

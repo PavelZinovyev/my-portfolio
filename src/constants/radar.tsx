@@ -90,6 +90,7 @@ export const RADAR_SECTIONS: RadarSectionProps[] = [
     fill: 'rgba(34, 197, 94, 0.15)',
     stroke: 'rgba(34, 197, 94, 0.7)',
     color: 'rgba(34, 197, 94, 0.7)',
+    hoverColor: 'rgba(34, 197, 94, 1)',
     key: 'future',
   },
   {
@@ -97,6 +98,7 @@ export const RADAR_SECTIONS: RadarSectionProps[] = [
     fill: 'rgba(59, 130, 246, 0.18)',
     stroke: 'rgba(59, 130, 246, 0.9)',
     color: 'rgba(59, 130, 246, 0.9)',
+    hoverColor: 'rgba(59, 130, 246, 1)',
     key: 'current',
   },
 ];

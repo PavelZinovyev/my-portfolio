@@ -28,7 +28,12 @@ export const Radar = () => {
             onMouseEnter={() => setHoveredSection(section.key)}
             onMouseLeave={() => setHoveredSection(null)}
           >
-            <div className={localStyles.dot} style={{ background: section.color }} />
+            <div
+              className={localStyles.dot}
+              style={{
+                background: hoveredSection === section.key ? section.hoverColor : section.color,
+              }}
+            />
             <span className={localStyles.text}>{section.name}</span>
           </div>
         ))}

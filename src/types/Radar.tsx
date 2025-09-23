@@ -12,6 +12,7 @@ export type RadarSectionProps = {
   color: string;
   fill: string;
   stroke: string;
+  hoverColor: string;
   key: keyof (typeof SKILLS_EN)[number];
 };
 
