@@ -1,7 +1,9 @@
 .header {
   position: fixed;
   width: 100%;
-  backdrop-filter: blur(20px);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  will-change: backdrop-filter;
   transition: all 200ms ease;
   z-index: var(--z-index-main-layer);
 
