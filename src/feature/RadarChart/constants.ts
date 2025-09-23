@@ -83,3 +83,10 @@ export const CENTER = SIZE / 2;
 export const MARGIN = 40;
 export const RADIUS = CENTER - MARGIN;
 export const TOOLTIP_MOBILE_OFFSET = 146;
+export const RADAR_SECTIONS = [
+  { name: 'Current', color: 'rgba(59, 130, 246, 0.9)' },
+  {
+    name: 'Future',
+    color: 'rgba(34, 197, 94, 0.7)',
+  },
+];

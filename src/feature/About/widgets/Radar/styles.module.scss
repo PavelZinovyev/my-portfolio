@@ -1,0 +1,27 @@
+.radarWrapper {
+  margin: auto;
+}
+
+.legendaWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+
+  .legendaItem {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+
+    .dot {
+      border-radius: 50%;
+      width: 16px;
+      height: 16px;
+    }
+
+    .text {
+      font-weight: 700;
+      font-size: 16px;
+      cursor: pointer;
+    }
+  }
+}
