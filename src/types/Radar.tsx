@@ -14,3 +14,5 @@ export type RadarSectionProps = {
   stroke: string;
   key: keyof (typeof SKILLS_EN)[number];
 };
+
+export type SectionHoverProps = RadarSectionProps['key'] | null;

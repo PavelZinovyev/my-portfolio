@@ -2,9 +2,15 @@ import { useState, useEffect } from 'react';
 import styles from './styles.module.scss';
 import { getTextAnchor, getLabelPosition, getDominantBaseline, getPoint } from './utils';
 import { LEVELS, SKILLS_EN, SIZE, TOOLTIP_MOBILE_OFFSET } from '../../constants/radar';
-import type { RadarSectionProps } from '@/types/Radar';
+import type { RadarSectionProps, SectionHoverProps } from '@/types/Radar';
 
-export const RadarChart = ({ data }: { data: RadarSectionProps[] }) => {
+export const RadarChart = ({
+  data,
+  hoveredSection,
+}: {
+  data: RadarSectionProps[];
+  hoveredSection: SectionHoverProps;
+}) => {
   const [tooltip, setTooltip] = useState<{ text: string; x: number; y: number } | null>(null);
   const [lastTooltip, setLastTooltip] = useState<{ text: string; x: number; y: number } | null>(
     null
@@ -120,8 +126,9 @@ export const RadarChart = ({ data }: { data: RadarSectionProps[] }) => {
               <polygon
                 key={section.name}
                 points={ptsStr}
-                fill={section.fill}
+                fill={hoveredSection === section.key ? section.color : section.fill}
                 stroke={section.stroke}
+                className={styles.polygon}
               />
             );
           })}

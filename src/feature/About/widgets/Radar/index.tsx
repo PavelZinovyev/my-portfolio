@@ -1,10 +1,14 @@
 import localStyles from './styles.module.scss';
 import styles from '../../styles.module.scss';
 
-import { RADAR_SECTIONS } from '@/feature/RadarChart/constants';
+import { RADAR_SECTIONS } from '@/constants/radar';
 import { RadarChart } from '@/feature/RadarChart';
+import { useState } from 'react';
+import type { SectionHoverProps } from '@/types/Radar';
 
 export const Radar = () => {
+  const [hoveredSection, setHoveredSection] = useState<SectionHoverProps>(null);
+
   return (
     <div className={styles.widgetWrapper}>
       <header className={styles.headerContainer}>
@@ -18,7 +22,12 @@ export const Radar = () => {
 
       <div className={localStyles.legendaWrapper}>
         {RADAR_SECTIONS.map((section) => (
-          <div className={localStyles.legendaItem} key={section.name}>
+          <div
+            className={localStyles.legendaItem}
+            key={section.key}
+            onMouseEnter={() => setHoveredSection(section.key)}
+            onMouseLeave={() => setHoveredSection(null)}
+          >
             <div className={localStyles.dot} style={{ background: section.color }} />
             <span className={localStyles.text}>{section.name}</span>
           </div>
@@ -26,7 +35,7 @@ export const Radar = () => {
       </div>
 
       <div className={localStyles.radarWrapper}>
-        <RadarChart data={RADAR_SECTIONS} />
+        <RadarChart data={RADAR_SECTIONS} hoveredSection={hoveredSection} />
       </div>
     </div>
   );

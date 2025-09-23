@@ -10,6 +10,7 @@
   .legendaItem {
     display: flex;
     align-items: center;
+    max-width: max-content;
     gap: 8px;
 
     .dot {
