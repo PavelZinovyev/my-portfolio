@@ -36,7 +36,7 @@ export const ToastProvider = ({ children }: { children: ReactNode }) => {
     <ToastContext.Provider value={{ showToast }}>
       {children}
       {createPortal(
-        toasts.map((data) => <Toast {...data} onDone={() => removeToast(data.id)} />),
+        toasts.map((data) => <Toast {...data} key={data.id} onDone={() => removeToast(data.id)} />),
         document.body
       )}
     </ToastContext.Provider>
