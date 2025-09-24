@@ -4,6 +4,7 @@ import { Services } from '../../shared/Services';
 import { Button } from '../../shared/Button';
 import { TELEGRAM_LINK } from '../../constants/telegramLink';
 import { useWindowSize } from '../../hooks/useWindowSize';
+import { ScrollDownBlock } from '@/shared/ScrollDownBlock';
 
 import Lottie from 'lottie-react';
 import planeAnimation from '../../assets/lotties/telegram.json';
@@ -37,6 +38,7 @@ export const Home = () => {
           <img src={photo} alt="Portrait of Pavel Zinovyev"></img>
         </div>
       </div>
+      <ScrollDownBlock />
     </section>
   );
 };
