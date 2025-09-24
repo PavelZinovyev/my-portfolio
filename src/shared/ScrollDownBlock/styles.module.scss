@@ -15,7 +15,8 @@
   height: 85px;
   border-radius: var(--default-border-radius);
   border: solid 2px white;
-  transition: opacity 400ms ease;
+  transition: all 400ms ease;
+  transform: translateY(60px);
   opacity: 0;
 
   &:after {
@@ -32,6 +33,7 @@
 
   &.visible {
     opacity: 1;
+    transform: translateY(0px);
   }
 }
 
