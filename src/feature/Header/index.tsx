@@ -68,7 +68,7 @@ export const Header: FC<{
     <div className={`${styles.header} ${scrolled ? styles.blur : ''}`}>
       <Container>
         <div className={styles.headerWrapper}>
-          <a className={styles.logo}>Pavel Zinovyev</a>
+          <a className={styles.name}>Pavel Zinovyev</a>
           <div className={styles.nav}>
             <ul className={styles.navMenu}>
               <div

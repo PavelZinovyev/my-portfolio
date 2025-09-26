@@ -12,6 +12,14 @@
 
   @media (max-width: 1023px) {
     flex-direction: column-reverse;
+
+    .imageContainer {
+      width: 100%;
+
+      img {
+        margin: auto;
+      }
+    }
   }
 }
 
