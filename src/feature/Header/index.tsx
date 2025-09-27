@@ -31,7 +31,7 @@ export const Header: FC<{
             Pavel Zinovyev
           </a>
           {isMobile ? (
-            <NavMobile />
+            <NavMobile onSectionClick={onSectionClick} />
           ) : (
             <NavDesktop currentSection={currentSection} onSectionClick={onSectionClick} />
           )}
