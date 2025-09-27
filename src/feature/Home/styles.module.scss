@@ -1,7 +1,32 @@
 .home {
   min-height: 100vh;
   position: relative;
-  padding: 80px 0px;
+  padding: 100px 0px;
+
+  @media (max-width: 1023px) {
+    padding: 60px 0px;
+
+    .content {
+      flex-direction: column-reverse;
+      gap: 20px;
+
+      .imageContainer {
+        width: 100%;
+
+        img {
+          margin: auto;
+        }
+      }
+
+      .homeWrapper {
+        margin-bottom: 40px;
+
+        & > :last-child {
+          margin: 20px auto auto;
+        }
+      }
+    }
+  }
 }
 
 .content {
@@ -9,18 +34,6 @@
   justify-content: space-between;
   align-items: center;
   gap: 60px;
-
-  @media (max-width: 1023px) {
-    flex-direction: column-reverse;
-
-    .imageContainer {
-      width: 100%;
-
-      img {
-        margin: auto;
-      }
-    }
-  }
 }
 
 .imageContainer {
@@ -48,8 +61,4 @@
   display: flex;
   flex-direction: column;
   gap: 14px;
-
-  & > :last-child {
-    margin: 20px auto auto;
-  }
 }
