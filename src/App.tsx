@@ -37,12 +37,12 @@ export const App = () => {
               <section id={'home'}>
                 <Home />
               </section>
-              <SectionHeader title={'About'} />
               <section id={'about'}>
+                <SectionHeader title={'About'} />
                 <About />
               </section>
-              <SectionHeader title={'My work experience'} />
               <section id={'experience'}>
+                <SectionHeader title={'My work experience'} />
                 <Experience />
               </section>
             </>

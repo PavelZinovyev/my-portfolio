@@ -29,14 +29,6 @@
   color: var(--primary-text-color);
   font-weight: 600;
   white-space: nowrap;
-  transition: color 500ms ease;
-  cursor: pointer;
-
-  @media (hover: hover) {
-    &:hover {
-      color: var(--secondary-text-color);
-    }
-  }
 }
 
 .nav {
