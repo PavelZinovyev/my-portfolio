@@ -23,8 +23,8 @@ export const Radar = () => {
       <div className={localStyles.legendaWrapper}>
         {RADAR_SECTIONS.map((section) => (
           <div
-            className={localStyles.legendaItem}
             key={section.key}
+            className={localStyles.legendaItem}
             onMouseEnter={() => setHoveredSection(section.key)}
             onMouseLeave={() => setHoveredSection(null)}
           >

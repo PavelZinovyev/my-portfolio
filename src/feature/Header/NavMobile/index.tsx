@@ -6,13 +6,13 @@ export const NavMobile = () => {
     <nav>
       <div className={styles.menuToggle}>
         <input type="checkbox" className={styles.menuCheckbox} />
-        {Array.from({ length: 3 }).map(() => (
-          <div className={styles.line} />
+        {Array.from({ length: 3 }).map((_, idx) => (
+          <div className={styles.line} key={idx} />
         ))}
 
         <ul className={styles.menu}>
           {HEADER_LIST.map((section) => (
-            <li>
+            <li key={section.id}>
               <a href={section.id}>
                 <label>{section.name}</label>
               </a>
