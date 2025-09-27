@@ -12,8 +12,6 @@ export const Header: FC<{
   onSectionClick: (sectionId: SectionIdProps) => void;
 }> = ({ currentSection, onSectionClick }) => {
   const [scrolled, setScrolled] = useState(false);
-  const { width } = useWindowSize();
-  const isMobile = width && width < 1024;
 
   useEffect(() => {
     const handleScroll = () => {
@@ -22,6 +20,11 @@ export const Header: FC<{
     document.addEventListener('scroll', handleScroll);
     return () => document.removeEventListener('scroll', handleScroll);
   }, []);
+
+  const { width } = useWindowSize();
+  const isMobile = width && width < 1024;
+
+  if (!width) return null;
 
   return (
     <header className={`${styles.header} ${scrolled ? styles.blur : ''}`}>
