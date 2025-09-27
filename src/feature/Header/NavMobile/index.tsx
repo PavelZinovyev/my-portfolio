@@ -1,29 +1,23 @@
 import styles from './styles.module.scss';
+import { HEADER_LIST } from '@/constants/headerList';
 
 export const NavMobile = () => {
   return (
     <nav>
       <div className={styles.menuToggle}>
         <input type="checkbox" className={styles.menuCheckbox} />
-        <div className={styles.line} />
-        <div className={styles.line} />
-        <div className={styles.line} />
+        {Array.from({ length: 3 }).map(() => (
+          <div className={styles.line} />
+        ))}
+
         <ul className={styles.menu}>
-          <li>
-            <a href="#">
-              <label>Home</label>
-            </a>
-          </li>
-          <li>
-            <a href="#">
-              <label>About</label>
-            </a>
-          </li>
-          <li>
-            <a href="#">
-              <label>Experience</label>
-            </a>
-          </li>
+          {HEADER_LIST.map((section) => (
+            <li>
+              <a href={section.id}>
+                <label>{section.name}</label>
+              </a>
+            </li>
+          ))}
         </ul>
       </div>
     </nav>
