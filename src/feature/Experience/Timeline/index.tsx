@@ -80,14 +80,22 @@ export const Timeline: FC<TimelineProps> = ({ data }) => {
                 dotsRef.current[i] = el;
               }}
             />
-            <div className={styles.shortBlock}>
+            <div
+              className={`${styles.shortBlock} ${
+                progressValue >= dotsPositions[i] ? styles.active : ''
+              }`}
+            >
               <h3 className={styles.dateText}>{exp.date}</h3>
               <h3 className={styles.titleText}>{exp.title}</h3>
               <h3 className={styles.companyText}>{exp.company}</h3>
             </div>
           </div>
 
-          <div className={styles.contents}>
+          <div
+            className={`${styles.contents} ${
+              progressValue >= dotsPositions[i] ? styles.active : ''
+            }`}
+          >
             {exp.contents.map((content: string, idx: number) => (
               <p key={idx}>{content}</p>
             ))}

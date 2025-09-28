@@ -75,6 +75,16 @@
   flex-direction: column;
   gap: 4px;
   min-width: max-content;
+
+  h3 {
+    transition: color 200ms ease;
+  }
+
+  &.active {
+    h3 {
+      color: var(--primary-text-color);
+    }
+  }
 }
 
 .dateText {
@@ -103,6 +113,13 @@
   max-width: 760px;
 
   p {
+    transition: color 200ms ease;
     line-height: var(--default-line-height);
+  }
+
+  &.active {
+    p {
+      color: var(--primary-text-color);
+    }
   }
 }
