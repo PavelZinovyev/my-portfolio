@@ -6,9 +6,6 @@ import { TELEGRAM_LINK } from '../../constants/telegramLink';
 import { useWindowSize } from '../../hooks/useWindowSize';
 import { ScrollDownBlock } from '@/shared/ScrollDownBlock';
 
-import Lottie from 'lottie-react';
-import planeAnimation from '../../assets/lotties/telegram.json';
-
 export const Home = () => {
   const { width } = useWindowSize();
 
@@ -26,13 +23,7 @@ export const Home = () => {
             Passionate about creating engaging digital experiences and fostering a collaborative,
             positive team environment
           </p>
-          <Button
-            text={'Contact me'}
-            variant={'primary'}
-            href={TELEGRAM_LINK}
-            icon={<Lottie animationData={planeAnimation} loop style={{ width: 40, height: 40 }} />}
-            onClick={() => console.log('click')} // todo
-          />
+          <Button text={'Contact me'} variant={'primary'} href={TELEGRAM_LINK} />
         </div>
         <div className={styles.imageContainer}>
           <img src={photo} alt="Portrait of Pavel Zinovyev"></img>
