@@ -1,6 +1,8 @@
 import { SERVICES_LIST } from '../../constants/servicesList';
 import styles from './styles.module.scss';
 import type { FC } from 'react';
+import { motion } from 'framer-motion';
+import { FADE_IN_LEFT } from '@/constants/motion';
 
 interface ServicesProps {
   direction: 'column' | 'row';
@@ -8,7 +10,7 @@ interface ServicesProps {
 
 export const Services: FC<ServicesProps> = ({ direction }) => {
   return (
-    <div className={`${styles.services} ${styles[direction]}`}>
+    <motion.div className={`${styles.services} ${styles[direction]}`} {...FADE_IN_LEFT}>
       {SERVICES_LIST.map((service) => {
         const IconComponent = service.icon;
 
@@ -26,6 +28,6 @@ export const Services: FC<ServicesProps> = ({ direction }) => {
           </a>
         );
       })}
-    </div>
+    </motion.div>
   );
 };

@@ -30,6 +30,7 @@
   font-weight: 600;
   white-space: nowrap;
   transition: color 500ms ease;
+  -webkit-tap-highlight-color: transparent;
   cursor: pointer;
 
   @media (hover: hover) {

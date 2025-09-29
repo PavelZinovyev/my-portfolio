@@ -4,6 +4,7 @@
   top: 15px;
   right: 30px;
   z-index: 3;
+  -webkit-tap-highlight-color: transparent;
 
   .line {
     position: relative;
@@ -67,7 +68,7 @@
     padding: 20px 0;
     font-size: 22px;
     font-size: 48px;
-
+    -webkit-tap-highlight-color: transparent;
     cursor: pointer;
     color: #232323;
   }

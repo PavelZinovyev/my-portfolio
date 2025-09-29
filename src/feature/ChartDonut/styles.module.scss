@@ -62,6 +62,7 @@
 
 .segment {
   cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
 
   .path {
     transition: stroke-width 0.2s ease-in-out;

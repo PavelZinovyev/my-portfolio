@@ -1,16 +1,18 @@
 import localStyles from './styles.module.scss';
 import styles from '../../styles.module.scss';
+import { motion } from 'framer-motion';
 
 import { RADAR_SECTIONS } from '@/constants/radar';
 import { RadarChart } from '@/feature/RadarChart';
 import { useState } from 'react';
 import type { SectionHoverProps } from '@/types/Radar';
+import { FADE_IN_RIGHT } from '@/constants/motion';
 
 export const Radar = () => {
   const [hoveredSection, setHoveredSection] = useState<SectionHoverProps>(null);
 
   return (
-    <div className={styles.widgetWrapper}>
+    <motion.div className={styles.widgetWrapper} {...FADE_IN_RIGHT}>
       <header className={styles.headerContainer}>
         <h3>Skill Radar</h3>
         <p className={styles.descriptionText}>
@@ -42,6 +44,6 @@ export const Radar = () => {
       <div className={localStyles.radarWrapper}>
         <RadarChart data={RADAR_SECTIONS} hoveredSection={hoveredSection} />
       </div>
-    </div>
+    </motion.div>
   );
 };

@@ -5,6 +5,9 @@ import { useEffect, useRef, useState } from 'react';
 import styles from './styles.module.scss';
 import type { ExperienceType } from '@/constants/experienceList';
 
+import { motion } from 'framer-motion';
+import { FADE_IN_RIGHT } from '@/constants/motion';
+
 interface TimelineProps {
   data: ExperienceType[];
 }
@@ -70,7 +73,7 @@ export const Timeline: FC<TimelineProps> = ({ data }) => {
       </div>
 
       {data.map((exp, i) => (
-        <section key={i} className={styles.timelineBlock}>
+        <motion.section key={i} className={styles.timelineBlock} {...FADE_IN_RIGHT}>
           <div className={styles.dotWithShortBlockWrapper}>
             <div
               className={`${styles.dot} ${
@@ -100,7 +103,7 @@ export const Timeline: FC<TimelineProps> = ({ data }) => {
               <p key={idx}>{content}</p>
             ))}
           </div>
-        </section>
+        </motion.section>
       ))}
     </div>
   );

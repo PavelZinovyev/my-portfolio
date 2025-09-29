@@ -5,6 +5,8 @@ import { Button } from '../../shared/Button';
 import { TELEGRAM_LINK } from '../../constants/telegramLink';
 import { useWindowSize } from '../../hooks/useWindowSize';
 import { ScrollDownBlock } from '@/shared/ScrollDownBlock';
+import { motion } from 'framer-motion';
+import { FADE_IN_LEFT, FADE_IN_RIGHT } from '@/constants/motion';
 
 export const Home = () => {
   const { width } = useWindowSize();
@@ -16,7 +18,7 @@ export const Home = () => {
     <section className={styles.home}>
       <div className={styles.content}>
         <Services direction={servicesDirection} />
-        <div className={styles.homeWrapper}>
+        <motion.div className={styles.homeWrapper} {...FADE_IN_LEFT}>
           <h1 className={styles.headerInfo}>Hi, i am Pavel!</h1>
           <h3 className={styles.postTitle}>Front-end Developer</h3>
           <p className={styles.about}>
@@ -24,10 +26,10 @@ export const Home = () => {
             positive team environment
           </p>
           <Button text={'Contact me'} variant={'primary'} href={TELEGRAM_LINK} />
-        </div>
-        <div className={styles.imageContainer}>
+        </motion.div>
+        <motion.div className={styles.imageContainer} {...FADE_IN_RIGHT}>
           <img src={photo} alt="Portrait of Pavel Zinovyev"></img>
-        </div>
+        </motion.div>
       </div>
       <ScrollDownBlock />
     </section>
