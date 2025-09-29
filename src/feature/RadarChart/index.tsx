@@ -23,7 +23,7 @@ export const RadarChart = ({
   useEffect(() => {
     const handleResize = () => {
       setIsMobile(window.innerWidth < 700);
-      setSize(window.innerWidth < 480 ? 240 : SIZE);
+      setSize(window.innerWidth < 480 ? 300 : SIZE);
     };
     handleResize();
     window.addEventListener('resize', handleResize);
@@ -101,7 +101,7 @@ export const RadarChart = ({
           {axes}
 
           {SKILLS_EN.map((s, i) => {
-            const { x, y, angle } = getLabelPosition(i, 15, currentCenter, currentRadius);
+            const { x, y, angle } = getLabelPosition(i, 25, currentCenter, currentRadius);
             return (
               <text
                 key={s.name}
