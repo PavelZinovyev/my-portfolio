@@ -1,4 +1,5 @@
 import { useState } from 'react';
+
 import { Header } from './feature/Header';
 import { Layout } from './feature/Layout';
 import { Home } from './feature/Home';
@@ -6,8 +7,11 @@ import { About } from './feature/About';
 import { Experience } from './feature/Experience';
 import { SectionHeader } from './shared/SectionHeader';
 import { Footer } from './feature/Footer';
-import { ToastProvider } from './feature/Toast/Provider';
 import { useIntersectionObserver } from './hooks/useSectionObserver';
+
+import { ToastProvider } from './feature/Toast/Provider';
+import { LangProvider } from './feature/LanguageToggle/Provider';
+
 import { DEFAULT_SECTION, SECTIONS } from './constants/sections';
 
 import type { SectionIdProps } from './types/Section';
@@ -29,27 +33,29 @@ export const App = () => {
 
   return (
     <QueryClientProvider client={queryClient}>
-      <ToastProvider>
-        <Header currentSection={currentSection} onSectionClick={handleSectionClick} />
-        <Layout>
-          {
-            <>
-              <section id={'home'}>
-                <Home />
-              </section>
-              <section id={'about'}>
-                <SectionHeader title={'About'} />
-                <About />
-              </section>
-              <section id={'experience'}>
-                <SectionHeader title={'My work experience'} />
-                <Experience />
-              </section>
-            </>
-          }
-        </Layout>
-        <Footer />
-      </ToastProvider>
+      <LangProvider>
+        <ToastProvider>
+          <Header currentSection={currentSection} onSectionClick={handleSectionClick} />
+          <Layout>
+            {
+              <>
+                <section id={'home'}>
+                  <Home />
+                </section>
+                <section id={'about'}>
+                  <SectionHeader title={'About'} />
+                  <About />
+                </section>
+                <section id={'experience'}>
+                  <SectionHeader title={'My work experience'} />
+                  <Experience />
+                </section>
+              </>
+            }
+          </Layout>
+          <Footer />
+        </ToastProvider>
+      </LangProvider>
     </QueryClientProvider>
   );
 };

@@ -1,6 +1,7 @@
 import type { FC } from 'react';
 import type { SectionIdProps } from '@/types/Section';
 import { useEffect, useRef, useState } from 'react';
+import { useLang } from '@/hooks/useLang';
 
 import { HEADER_LIST } from '@/constants/headerList';
 
@@ -13,6 +14,29 @@ export const NavDesktop: FC<{
   const highlightRef = useRef<HTMLDivElement | null>(null);
   const navRefs = useRef<Record<string, HTMLLIElement>>({});
   const [highlightVisible, setHighlightVisible] = useState(false);
+
+  const { t, lang } = useLang();
+
+  useEffect(() => {
+    const highlight = highlightRef.current;
+    if (!highlight) return;
+
+    highlight.style.transition = 'none';
+    highlight.style.opacity = '0';
+
+    const currentLink = navRefs.current[currentSection];
+    if (currentLink) {
+      highlight.style.left = `${currentLink.offsetLeft}px`;
+      highlight.style.width = `${currentLink.offsetWidth}px`;
+    }
+
+    const raf = requestAnimationFrame(() => {
+      highlight.style.transition = '';
+      highlight.style.opacity = '1';
+    });
+
+    return () => cancelAnimationFrame(raf);
+  }, [lang]);
 
   useEffect(() => {
     const raf = requestAnimationFrame(() => setHighlightVisible(true));
@@ -62,7 +86,7 @@ export const NavDesktop: FC<{
         <div
           className={`${styles.highlight} ${highlightVisible ? styles.visible : ''}`}
           ref={highlightRef}
-        ></div>
+        />
         {HEADER_LIST.map((el) => (
           <li
             className={styles.navLink}
@@ -73,7 +97,7 @@ export const NavDesktop: FC<{
             data-id={el.id}
             onClick={() => onSectionClick(el.id)}
           >
-            {el.name}
+            {t(`${el.id}`)}
           </li>
         ))}
       </ul>
