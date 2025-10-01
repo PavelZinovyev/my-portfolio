@@ -112,9 +112,9 @@
   gap: 16px;
   max-width: 760px;
 
-  p {
+  > p {
     transition: color 200ms ease;
-    line-height: var(--default-line-height);
+    line-height: 28px;
   }
 
   &.active {

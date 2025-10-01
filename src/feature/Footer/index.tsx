@@ -1,6 +1,8 @@
 import type { FC } from 'react';
 import styles from './styles.module.scss';
+
 import { useToast } from '@/hooks/useToast';
+import { useLang } from '@/hooks/useLang';
 
 import type { ContactProps } from '@/types/Contacts';
 
@@ -12,15 +14,16 @@ import { TelegramGoIcon } from '@/assets/icons/TelegramGoIcon';
 
 export const Footer: FC = () => {
   const { showToast } = useToast();
+  const { lang, t } = useLang();
 
   const isMobile = /Mobi|Android/i.test(navigator.userAgent);
 
   const handleCopyToClipboard = async (text: string, fieldType: ContactProps['type']) => {
     try {
       await navigator.clipboard.writeText(text);
-      showToast({ message: getToastText(fieldType, 'success'), type: 'success' });
+      showToast({ message: getToastText(fieldType, 'success', lang), type: 'success' });
     } catch (e) {
-      showToast({ message: getToastText(fieldType, 'error'), type: 'error' });
+      showToast({ message: getToastText(fieldType, 'error', lang), type: 'error' });
       console.error(`failed to copy ${fieldType}`, e);
     }
   };
@@ -30,7 +33,7 @@ export const Footer: FC = () => {
       <div className={styles.wrapper}>
         <div className={styles.content}>
           <div className={styles.contacts}>
-            <h3 className={styles.contactsTitle}>Contacts</h3>
+            <h3 className={styles.contactsTitle}>{t('contacts')}</h3>
             <ul className={styles.contactsList}>
               {CONTACTS_LIST.map((contact, i) => {
                 const isPhone = contact.type === 'tel';
@@ -86,7 +89,7 @@ export const Footer: FC = () => {
               })}
             </ul>
           </div>
-          <span className={styles.copyrights}>{getCopyrightsText()}</span>
+          <span className={styles.copyrights}>{getCopyrightsText(lang)}</span>
         </div>
       </div>
     </footer>

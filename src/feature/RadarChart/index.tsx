@@ -1,8 +1,9 @@
 import { useState, useEffect } from 'react';
 import styles from './styles.module.scss';
 import { getTextAnchor, getLabelPosition, getDominantBaseline, getPoint } from './utils';
-import { LEVELS, SKILLS_EN, SIZE, TOOLTIP_MOBILE_OFFSET } from '../../constants/radar';
+import { LEVELS, SKILLS, SIZE, TOOLTIP_MOBILE_OFFSET } from '../../constants/radar';
 import type { RadarSectionProps, SectionHoverProps } from '@/types/Radar';
+import { useLang } from '@/hooks/useLang';
 
 export const RadarChart = ({
   data,
@@ -19,6 +20,9 @@ export const RadarChart = ({
   const [animationActive, setAnimationActive] = useState(true);
   const [size, setSize] = useState(SIZE);
   const [isMobile, setIsMobile] = useState(window.innerWidth < 700);
+  const { lang } = useLang();
+
+  const selectedSkills = SKILLS[lang];
 
   useEffect(() => {
     const handleResize = () => {
@@ -33,7 +37,7 @@ export const RadarChart = ({
   useEffect(() => {
     if (!animationActive) return;
     const interval = setInterval(() => {
-      setAnimatedIndex((prev) => (prev + 1) % SKILLS_EN.length);
+      setAnimatedIndex((prev) => (prev + 1) % selectedSkills.length);
     }, 4000);
     return () => clearInterval(interval);
   }, [animationActive]);
@@ -56,15 +60,17 @@ export const RadarChart = ({
   const hideTooltip = () => setTooltip(null);
 
   const grid = Array.from({ length: LEVELS }, (_, lvl) => {
-    const pts = SKILLS_EN.map((_, i) => {
-      const p = getPoint(i, lvl + 1, LEVELS, currentCenter, currentRadius);
-      return `${p[0]},${p[1]}`;
-    }).join(' ');
+    const pts = selectedSkills
+      .map((_, i) => {
+        const p = getPoint(i, lvl + 1, LEVELS, currentCenter, currentRadius, lang);
+        return `${p[0]},${p[1]}`;
+      })
+      .join(' ');
     return <polygon key={lvl} points={pts} className={styles.gridLine} />;
   });
 
-  const axes = SKILLS_EN.map((_, i) => {
-    const [x, y] = getPoint(i, LEVELS, LEVELS, currentCenter, currentRadius);
+  const axes = selectedSkills.map((_, i) => {
+    const [x, y] = getPoint(i, LEVELS, LEVELS, currentCenter, currentRadius, lang);
     return (
       <line
         key={i}
@@ -77,8 +83,8 @@ export const RadarChart = ({
     );
   });
 
-  const dots = SKILLS_EN.map((s, i) => {
-    const [x, y] = getPoint(i, s.current, LEVELS, currentCenter, currentRadius);
+  const dots = selectedSkills.map((s, i) => {
+    const [x, y] = getPoint(i, s.current, LEVELS, currentCenter, currentRadius, lang);
     const isBlinking = i === animatedIndex && animationActive;
     return (
       <circle
@@ -100,8 +106,8 @@ export const RadarChart = ({
           {grid}
           {axes}
 
-          {SKILLS_EN.map((s, i) => {
-            const { x, y, angle } = getLabelPosition(i, 25, currentCenter, currentRadius);
+          {selectedSkills.map((s, i) => {
+            const { x, y, angle } = getLabelPosition(i, 19, currentCenter, currentRadius, lang);
             return (
               <text
                 key={s.name}
@@ -117,9 +123,10 @@ export const RadarChart = ({
           })}
 
           {data.map((section) => {
-            const ptsStr = SKILLS_EN.map((s, i) =>
-              getPoint(i, Number(s[section.key]), LEVELS, currentCenter, currentRadius)
-            )
+            const ptsStr = selectedSkills
+              .map((s, i) =>
+                getPoint(i, Number(s[section.key]), LEVELS, currentCenter, currentRadius, lang)
+              )
               .map((p) => `${p[0]},${p[1]}`)
               .join(' ');
             return (

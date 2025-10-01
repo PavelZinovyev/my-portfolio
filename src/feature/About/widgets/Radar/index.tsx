@@ -7,18 +7,20 @@ import { RadarChart } from '@/feature/RadarChart';
 import { useState } from 'react';
 import type { SectionHoverProps } from '@/types/Radar';
 import { FADE_IN_RIGHT } from '@/constants/motion';
+import { useLang } from '@/hooks/useLang';
 
 export const Radar = () => {
+  const { t } = useLang();
   const [hoveredSection, setHoveredSection] = useState<SectionHoverProps>(null);
 
   return (
     <motion.div className={styles.widgetWrapper} {...FADE_IN_RIGHT}>
       <header className={styles.headerContainer}>
-        <h3>Skill Radar</h3>
+        <h3>{t('skillRadarTitle')}</h3>
         <p className={styles.descriptionText}>
-          Current strengths and growth areas
+          {t('skillRadarDescriptionPart1')}
           <br />
-          planned for 2026
+          {t('skillRadarDescriptionPart2')}
         </p>
       </header>
 
@@ -36,7 +38,7 @@ export const Radar = () => {
                 background: hoveredSection === section.key ? section.hoverColor : section.color,
               }}
             />
-            <span className={localStyles.text}>{section.name}</span>
+            <span className={localStyles.text}>{t(`${section.key}`)}</span>
           </div>
         ))}
       </div>
