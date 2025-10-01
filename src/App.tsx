@@ -9,16 +9,15 @@ import { SectionHeader } from './shared/SectionHeader';
 import { Footer } from './feature/Footer';
 import { useIntersectionObserver } from './hooks/useSectionObserver';
 
-import { ToastProvider } from './feature/Toast/Provider';
-import { LangProvider } from './feature/LanguageToggle/Provider';
-
 import { DEFAULT_SECTION, SECTIONS } from './constants/sections';
 
 import type { SectionIdProps } from './types/Section';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
+import { useLang } from './hooks/useLang';
 
 export const App = () => {
   const [currentSection, setCurrentSection] = useState<SectionIdProps>(DEFAULT_SECTION);
+  const { t } = useLang();
 
   useIntersectionObserver(SECTIONS, setCurrentSection);
 
@@ -33,29 +32,25 @@ export const App = () => {
 
   return (
     <QueryClientProvider client={queryClient}>
-      <LangProvider>
-        <ToastProvider>
-          <Header currentSection={currentSection} onSectionClick={handleSectionClick} />
-          <Layout>
-            {
-              <>
-                <section id={'home'}>
-                  <Home />
-                </section>
-                <section id={'about'}>
-                  <SectionHeader title={'About'} />
-                  <About />
-                </section>
-                <section id={'experience'}>
-                  <SectionHeader title={'My work experience'} />
-                  <Experience />
-                </section>
-              </>
-            }
-          </Layout>
-          <Footer />
-        </ToastProvider>
-      </LangProvider>
+      <Header currentSection={currentSection} onSectionClick={handleSectionClick} />
+      <Layout>
+        {
+          <>
+            <section id={'home'}>
+              <Home />
+            </section>
+            <section id={'about'}>
+              <SectionHeader title={t('about')} />
+              <About />
+            </section>
+            <section id={'experience'}>
+              <SectionHeader title={t('experienceSectionHeader')} />
+              <Experience />
+            </section>
+          </>
+        }
+      </Layout>
+      <Footer />
     </QueryClientProvider>
   );
 };

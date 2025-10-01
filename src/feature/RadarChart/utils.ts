@@ -1,7 +1,14 @@
-import { SKILLS_EN } from '../../constants/radar';
+import type { LangProps } from '@/types/Lang';
+import { SKILLS } from '../../constants/radar';
 
-export const getLabelPosition = (index: number, offset: number, center: number, radius: number) => {
-  const angle = (Math.PI * 2 * index) / SKILLS_EN.length - Math.PI / 2;
+export const getLabelPosition = (
+  index: number,
+  offset: number,
+  center: number,
+  radius: number,
+  lang: LangProps
+) => {
+  const angle = (Math.PI * 2 * index) / SKILLS[lang].length - Math.PI / 2;
   const r = radius + offset;
   const x = center + r * Math.cos(angle);
   const y = center + r * Math.sin(angle);
@@ -25,9 +32,10 @@ export const getPoint = (
   value: number,
   maxValue: number,
   center: number,
-  radius: number
+  radius: number,
+  lang: LangProps
 ) => {
-  const angle = (Math.PI * 2 * index) / SKILLS_EN.length - Math.PI / 2;
+  const angle = (Math.PI * 2 * index) / SKILLS[lang].length - Math.PI / 2;
   const r = (Number(value) / maxValue) * radius;
   const x = center + r * Math.cos(angle);
   const y = center + r * Math.sin(angle);

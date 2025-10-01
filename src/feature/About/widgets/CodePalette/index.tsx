@@ -6,8 +6,10 @@ import { useActivityChartData } from '@/hooks/useLangStatChartData';
 import { motion } from 'framer-motion';
 
 import { FADE_IN_LEFT } from '@/constants/motion';
+import { useLang } from '@/hooks/useLang';
 
 export const CodePalette = () => {
+  const { t } = useLang();
   const { data, isLoading } = useActivityChartData();
 
   return (
@@ -16,15 +18,15 @@ export const CodePalette = () => {
       {...FADE_IN_LEFT}
     >
       <header className={styles.headerContainer}>
-        <h3>Code Palette</h3>
+        <h3>{t('codePaletteTitle')}</h3>
         <p className={styles.descriptionText}>
-          Primary frameworks and languages
+          {t('codePaletteDescriptionPart1')}
           <br />
-          used in my work
+          {t('codePaletteDescriptionPart2')}
         </p>
       </header>
       <ChartDonut data={data} isLoading={isLoading} />
-      <InfoPlate text={'Data from my public GitHub and private work repositories'} />
+      <InfoPlate text={t('codePaletteBanner')} />
     </motion.div>
   );
 };

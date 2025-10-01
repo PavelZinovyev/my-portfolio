@@ -1,11 +1,4 @@
-import { SKILLS_EN } from '@/constants/radar';
-
-export type SkillType = {
-  name: string;
-  current: number;
-  future: number;
-  tooltip: string;
-};
+export type RadarSectionKey = 'current' | 'future';
 
 export type RadarSectionProps = {
   name: string;
@@ -13,7 +6,12 @@ export type RadarSectionProps = {
   fill: string;
   stroke: string;
   hoverColor: string;
-  key: keyof (typeof SKILLS_EN)[number];
+  key: RadarSectionKey;
 };
 
-export type SectionHoverProps = RadarSectionProps['key'] | null;
+export type SectionHoverProps = RadarSectionKey | null;
+
+export type SkillType = {
+  name: string;
+  tooltip: string;
+} & Record<RadarSectionKey, number>;
