@@ -11,7 +11,7 @@ import { NavMobile } from './NavMobile';
 import { NavDesktop } from './NavDesktop';
 
 import { Container } from '../../shared/Container';
-import { LanguageToggle } from '../LanguageToggle';
+import { LanguageToggle } from '../../shared/LanguageToggle';
 
 export const Header: FC<{
   currentSection: SectionIdProps;
@@ -46,7 +46,7 @@ export const Header: FC<{
           ) : (
             <NavDesktop currentSection={currentSection} onSectionClick={onSectionClick} />
           )}
-          <LanguageToggle />
+          <LanguageToggle textColor="#ffffff" textActiveColor="#a9afc3" visibility={'desktop'} />
         </div>
       </Container>
     </header>

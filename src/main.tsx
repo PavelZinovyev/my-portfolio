@@ -5,7 +5,7 @@ import { App } from './App';
 import './styles/global.scss';
 
 import { ToastProvider } from './feature/Toast/Provider';
-import { LangProvider } from './feature/LanguageToggle/Provider';
+import { LangProvider } from './shared/LanguageToggle/Provider';
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>

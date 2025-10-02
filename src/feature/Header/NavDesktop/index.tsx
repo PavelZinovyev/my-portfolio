@@ -87,7 +87,7 @@ export const NavDesktop: FC<{
           className={`${styles.highlight} ${highlightVisible ? styles.visible : ''}`}
           ref={highlightRef}
         />
-        {HEADER_LIST.map((el) => (
+        {HEADER_LIST[lang].map((el) => (
           <li
             className={styles.navLink}
             key={el.id}

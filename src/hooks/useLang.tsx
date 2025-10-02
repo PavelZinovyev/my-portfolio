@@ -1,5 +1,5 @@
 import { useContext } from 'react';
-import { LangContext } from '@/feature/LanguageToggle/Context';
+import { LangContext } from '@/shared/LanguageToggle/Context';
 
 export const useLang = () => {
   const context = useContext(LangContext);

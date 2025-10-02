@@ -32,3 +32,9 @@ export type TranslationKeys =
   | 'contacts';
 
 export type Translations = Record<LangProps, Record<TranslationKeys, string>>;
+
+export interface LanguageToggleProps {
+  textColor: string;
+  textActiveColor: string;
+  visibility: 'desktop' | 'mobile';
+}
