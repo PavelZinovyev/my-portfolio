@@ -1,12 +1,17 @@
 import { useState } from 'react';
 import styles from './styles.module.scss';
-import type { SectionIdProps } from '@/types/Section';
+
 import type { FC } from 'react';
+import type { SectionIdProps } from '@/types/Section';
+
 import { HEADER_LIST } from '@/constants/headerList';
+import { LanguageToggle } from '@/shared/LanguageToggle';
+import { useLang } from '@/hooks/useLang';
 
 export const NavMobile: FC<{ onSectionClick: (section: SectionIdProps) => void }> = ({
   onSectionClick,
 }) => {
+  const { lang, t } = useLang();
   const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false);
   const [pendingSection, setPendingSection] = useState<SectionIdProps | null>(null);
 
@@ -36,9 +41,10 @@ export const NavMobile: FC<{ onSectionClick: (section: SectionIdProps) => void }
         ))}
 
         <ul className={styles.menu} onTransitionEnd={(e) => handleTransitionEnd(e)}>
-          {HEADER_LIST.map((section) => (
+          <LanguageToggle textColor="#1e1e1e" textActiveColor="#5c637a" visibility={'mobile'} />
+          {HEADER_LIST[lang].map((section) => (
             <li key={section.id} onClick={() => handleToggleMenu(section.id)}>
-              {section.name}
+              {t(`${section.id}`)}
             </li>
           ))}
         </ul>

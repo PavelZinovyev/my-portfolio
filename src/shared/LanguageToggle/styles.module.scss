@@ -2,16 +2,28 @@
   display: flex;
   align-items: center;
   gap: 10px;
+
+  &.mobile {
+    @media (min-width: 1024px) {
+      display: none;
+    }
+  }
+
+  &.desktop {
+    @media (max-width: 1023px) {
+      display: none;
+    }
+  }
 }
 
 .lang {
   font-weight: bold;
   font-size: 14px;
-  color: var(--secondary-text-color);
+  color: var(--lang-color);
   transition: color 400ms ease;
 
   &.active {
-    color: white;
+    color: var(--lang-hover-color);
   }
 }
 
