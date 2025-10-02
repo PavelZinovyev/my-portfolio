@@ -1,69 +1,28 @@
-# React + TypeScript + Vite
+Привет!
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Это мой сайт-визитка - небольшое, но очень личное приложение, где я собрал свой опыт, проекты и то, что мне нравится в фронтенде.
+Старался сделать его не только информативным, но и легким для восприятия: с интерактивными дашбордами, радарами навыков и анимациями, которые не перегружают интерфейс.
 
-Currently, two official plugins are available:
+Под капотом
+	•	React + TypeScript - люблю строгую типизацию и надежный код.
+	•	Vite - за скорость и простоту сборки.
+	•	FSD - чтобы проект был структурным и понятным.
+	•	React Context + Provider - проброс данных без лишних зависимостей.
+	•	REST API (GitHub) - часть данных подтягивается прямо из публичных ручек.
+	•	Минимум сторонних библиотек - постарался минимизировать итоговый размер бандла.
+	•	i18n - сайт доступен на русском и английском языках.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Хотел показать, как я вижу фронтенд: удобным для пользователя, оптимизированным и при этом живым.
+А ещё - поделиться кусочком себя как разработчика, который любит свое дело и открыт к новым возможностям.
 
-## Expanding the ESLint configuration
+<img width="2698" height="1496" alt="image" src="https://github.com/user-attachments/assets/2264c2b8-73ab-45fc-817b-28c2723485bf" />
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+<img width="2034" height="1788" alt="image" src="https://github.com/user-attachments/assets/e3e1b1a1-47b5-4997-b07d-9fa0f9438363" />
 
-```js
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+<img width="2038" height="1532" alt="image" src="https://github.com/user-attachments/assets/ab05af1e-ff6b-4540-9f15-7d63d597e653" />
 
-      // Remove tseslint.configs.recommended and replace with this
-      ...tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      ...tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      ...tseslint.configs.stylisticTypeChecked,
+<img width="1362" height="604" alt="image" src="https://github.com/user-attachments/assets/9c123a0b-cab1-4342-9d3a-545900c40cd8" />
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
 
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
