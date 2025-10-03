@@ -1,4 +1,5 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 
 import { Header } from './feature/Header';
 import { Layout } from './feature/Layout';
@@ -12,12 +13,17 @@ import { useIntersectionObserver } from './hooks/useSectionObserver';
 import { DEFAULT_SECTION, SECTIONS } from './constants/sections';
 
 import type { SectionIdProps } from './types/Section';
-import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
+
 import { useLang } from './hooks/useLang';
+import { updateVisits } from './utils/analytics';
 
 export const App = () => {
   const [currentSection, setCurrentSection] = useState<SectionIdProps>(DEFAULT_SECTION);
   const { t } = useLang();
+
+  useEffect(() => {
+    updateVisits();
+  }, []);
 
   useIntersectionObserver(SECTIONS, setCurrentSection);
 
