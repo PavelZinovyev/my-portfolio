@@ -46,7 +46,7 @@ export const Header: FC<{
           ) : (
             <NavDesktop currentSection={currentSection} onSectionClick={onSectionClick} />
           )}
-          <LanguageToggle textColor="#ffffff" textActiveColor="#a9afc3" visibility={'desktop'} />
+          <LanguageToggle textColor="#a9afc3" textActiveColor="#ffffff" visibility={'desktop'} />
         </div>
       </Container>
     </header>

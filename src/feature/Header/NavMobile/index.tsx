@@ -41,7 +41,7 @@ export const NavMobile: FC<{ onSectionClick: (section: SectionIdProps) => void }
         ))}
 
         <ul className={styles.menu} onTransitionEnd={(e) => handleTransitionEnd(e)}>
-          <LanguageToggle textColor="#1e1e1e" textActiveColor="#5c637a" visibility={'mobile'} />
+          <LanguageToggle textColor="#5c637a" textActiveColor="#1e1e1e" visibility={'mobile'} />
           {HEADER_LIST[lang].map((section) => (
             <li key={section.id} onClick={() => handleToggleMenu(section.id)}>
               {t(`${section.id}`)}
