@@ -2,7 +2,7 @@ import { useQuery } from '@tanstack/react-query';
 
 import { QUERYKEYS } from '../constants/queryKeys';
 
-import { fetchRepoLangStats } from '../../ api/github';
+import { fetchRepoLangStats } from '../../api/github';
 
 const REPO_NAME = 'my-portfolio';
 const OWNER_NAME = 'PavelZinovyev';
