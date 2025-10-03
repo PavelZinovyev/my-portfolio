@@ -1,10 +1,16 @@
-import type { IncomingMessage, ServerResponse } from 'http';
+export const runtime = 'edge';
 
-export default async function handler(req: IncomingMessage, res: ServerResponse) {
-  const scriptId = process.env.GOOGLE_SCRIPT_ID;
+export async function GET() {
+  const scriptId = process.env.VITE_GOOGLE_SCRIPT_ID;
   const url = `https://script.google.com/macros/s/${scriptId}/exec`;
 
-  await fetch(url);
-  res.statusCode = 200;
-  res.end('OK');
+  const resp = await fetch(url);
+  const text = await resp.text();
+
+  return new Response(text, {
+    status: resp.status,
+    headers: {
+      'Access-Control-Allow-Origin': '*',
+    },
+  });
 }
