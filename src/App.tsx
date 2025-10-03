@@ -23,6 +23,8 @@ export const App = () => {
 
   useEffect(() => {
     updateVisits();
+
+    console.log('Script ID PROD:', import.meta.env.VITE_GOOGLE_SCRIPT_ID);
   }, []);
 
   useIntersectionObserver(SECTIONS, setCurrentSection);
