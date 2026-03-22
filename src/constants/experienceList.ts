@@ -10,7 +10,7 @@ export type ExperienceType = {
 export const EXPERIENCE_LIST: Record<LangProps, ExperienceType[]> = {
   en: [
     {
-      title: 'Frontend Developer (Junior)',
+      title: 'Frontend Developer(Junior)',
       company: 'Happy Numbers, Inc.',
       date: '2021 - 2024',
       contents: [
@@ -24,7 +24,7 @@ export const EXPERIENCE_LIST: Record<LangProps, ExperienceType[]> = {
       ],
     },
     {
-      title: 'Frontend Developer (Junior)',
+      title: 'Frontend Developer(Junior)',
       company: 'Uchi.ru',
       date: '2024 - 2025',
       contents: [
@@ -36,9 +36,9 @@ export const EXPERIENCE_LIST: Record<LangProps, ExperienceType[]> = {
       ],
     },
     {
-      title: 'Frontend Developer (Middle)',
+      title: 'Frontend Developer(Middle)',
       company: 'Uchi.ru',
-      date: '2025 - Present',
+      date: '2025 - 2025',
       contents: [
         'Developed and currently maintain a student performance analytics service.',
         'Developed services for teachers to streamline their workflow.',
@@ -52,10 +52,19 @@ export const EXPERIENCE_LIST: Record<LangProps, ExperienceType[]> = {
         'Designed a retrospective template that improved the efficiency of team meetings.',
       ],
     },
+    {
+      title: 'Frontend Developer',
+      company: 'Wildberries & Russ',
+      date: '2025 - Present',
+      contents: [
+        'Implemented an image optimization strategy in Next.js: introduced a client-side resizer(accounting for actual width and dpr) to generate cdn urls with required quality levels and pre-blur, split loading flows(cdn vs next image optimizer), fixed banner handling (enabled optimizer and TTL caching), reducing traffic usage and improving page load speed.',
+        'Optimized bff performance(node.js, ssr): identified and resolved bottlenecks(excessive ssr requests, connection saturation), introduced caching and redistributed logic between server and client, increasing throughput ~9x.',
+      ],
+    },
   ],
   ru: [
     {
-      title: 'Фронтенд разработчик (Junior)',
+      title: 'Фронтенд разработчик(Junior)',
       company: 'Happy Numbers, Inc.',
       date: '2021 - 2024',
       contents: [
@@ -69,7 +78,7 @@ export const EXPERIENCE_LIST: Record<LangProps, ExperienceType[]> = {
       ],
     },
     {
-      title: 'Фронтенд разработчик (Junior)',
+      title: 'Фронтенд разработчик(Junior)',
       company: 'Учи.ру',
       date: '2024 - 2025',
       contents: [
@@ -81,9 +90,9 @@ export const EXPERIENCE_LIST: Record<LangProps, ExperienceType[]> = {
       ],
     },
     {
-      title: 'Фронтенд разработчик (Middle)',
+      title: 'Фронтенд разработчик',
       company: 'Учи.ру',
-      date: '2025 - настоящее время',
+      date: '2025 - 2025',
       contents: [
         'Разработал и поддерживаю сервис аналитики успеваемости студентов.',
         'Разработал сервисы для учителей, упрощающие их работу.',
@@ -95,6 +104,15 @@ export const EXPERIENCE_LIST: Record<LangProps, ExperienceType[]> = {
         'Возглавил командное решение на хакатоне, которое принесло идеи по улучшению продукта.',
         'Провёл онбординг и успешно интегрировал нового frontend-разработчика в команду.',
         'Разработал шаблон ретроспективы, который повысил эффективность командных встреч.',
+      ],
+    },
+    {
+      title: 'Фронтенд разработчик',
+      company: 'Wildberries & Russ',
+      date: '2025 - настоящее время',
+      contents: [
+        'Реализовал стратегию оптимизации изображений в next.js: внедрил клиентский ресайзер(учет фактической ширины и dpr) для генерации cdn-url с нужным качеством и pre-blur, разделил потоки загрузки(cdn vs next image optimizer), исправил обработку баннеров (включил optimizer и кэширование через TTL), что снизило объем трафика и ускорило загрузку страниц.',
+        'Оптимизировал производительность bff(node.js, ssr): выявил и устранил узкие места(избыточные ssr-запросы, перегрузка соединений), внедрил кэширование и перераспределил логику между сервером и клиентом, увеличив пропускную способность в 9 раз.',
       ],
     },
   ],
