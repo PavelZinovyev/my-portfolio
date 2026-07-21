@@ -12,6 +12,8 @@ export const CodePalette = () => {
   const { t } = useLang();
   const { data, isLoading } = useActivityChartData();
 
+  if (!data && !isLoading) return null;
+
   return (
     <motion.div
       className={`${styles.widgetWrapper} ${localStyles.donutWidgetGap}`}
